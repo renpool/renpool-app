@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, createContext } from 'react'
 import { Contract } from '@ethersproject/contracts'
 import { BigNumber } from '@ethersproject/bignumber'
-import { ContractNames, CONTRACT_ADDRESSES } from '../constants'
+import { ContractNames, CONTRACT_ADDRESSES } from '../lib/config'
 import { IERC20Standard as artifact } from 'renpool-contracts'
 // import map from '../artifacts/deployments/map.json'
 import { useActiveWeb3React } from '../hooks/useActiveWeb3React'

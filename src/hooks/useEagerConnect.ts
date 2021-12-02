@@ -1,7 +1,7 @@
 import { useWeb3React } from '@web3-react/core'
 import { useEffect, useState } from 'react'
 import { isMobile } from 'react-device-detect'
-import { injected } from '../connectors'
+import { injected } from '../lib/connectors'
 
 export const useEagerConnect = (): boolean => {
   const { activate, active } = useWeb3React() // specifically using useWeb3React because of what this hook does

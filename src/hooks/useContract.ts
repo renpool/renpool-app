@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Contract, ContractInterface } from '@ethersproject/contracts'
-import { injected } from '../connectors'
+import { injected } from '../lib/connectors'
 import { useActiveWeb3React } from './useActiveWeb3React'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
