@@ -6,39 +6,47 @@
     export let nodeOperator: string;
 </script>
 
-<h2>Addresses</h2>
-<div class="underline-title" />
+<section>
+    <h2>Addresses</h2>
+    <div class="underline-title" />
 
-<table class="w-full text-left border-collapse">
-    <thead>
-        <tr>
-            <th><div class="pb-2 pr-2 border-b border-gray-200">Contract or Account</div></th>
-            <th><div class="pb-2 border-b border-gray-200">Address</div></th>
-        </tr>
-    </thead>
-    <tbody class="align-baseline">
-        <tr>
-            <td class="key">RenToken</td>
-            <td class="value"
-                ><EtherscanLink address={NETWORK.contracts.REN_TOKEN} /></td
-            >
-        </tr>
-        <tr>
-            <td class="key">RenPool</td>
-            <td class="value"
-                ><EtherscanLink address={NETWORK.contracts.REN_POOL} /></td
-            >
-        </tr>
-        <tr>
-            <td class="key">Owner</td>
-            <td class="value"><EtherscanLink address={owner} /></td>
-        </tr>
-        <tr>
-            <td class="key">Node Operator</td>
-            <td class="value"><EtherscanLink address={nodeOperator} /></td>
-        </tr>
-    </tbody>
-</table>
+    <table class="w-full text-left border-collapse">
+        <thead>
+            <tr>
+                <th
+                    ><div class="pb-2 pr-2 border-b border-gray-200">
+                        Contract or Account
+                    </div></th
+                >
+                <th><div class="pb-2 border-b border-gray-200">Address</div></th
+                >
+            </tr>
+        </thead>
+        <tbody class="align-baseline">
+            <tr>
+                <td class="key">RenToken</td>
+                <td class="value"
+                    ><EtherscanLink address={NETWORK.contracts.REN_TOKEN} /></td
+                >
+            </tr>
+            <tr>
+                <td class="key">RenPool</td>
+                <td class="value"
+                    ><EtherscanLink address={NETWORK.contracts.REN_POOL} /></td
+                >
+            </tr>
+            <tr>
+                <td class="key">Owner</td>
+                <td class="value"><EtherscanLink address={owner} /></td>
+            </tr>
+            <tr>
+                <td class="key">Node Operator</td>
+                <td class="value"><EtherscanLink address={nodeOperator} /></td>
+            </tr>
+        </tbody>
+    </table>
+
+</section>
 
 <style lang="postcss">
     h2 {

@@ -4,9 +4,10 @@
     export let userBalance: string;
 </script>
 
-<p>Stats</p>
+<section>
+    <h2>Stats</h2>
+    <div class="underline-title" />
 
-<div>
     <p>
         <span class="key">Total Pooled</span>
         <span class="value">{totalPooled}</span>
@@ -19,15 +20,26 @@
         <span class="key">You pool balance</span>
         <span class="value">{userBalance}</span>
     </p>
-</div>
+</section>
 
 <style lang="postcss">
-    .key {
-        @apply font-semibold w-96;
+    section h2 {
+        @apply sm:text-xl text-xl font-medium mb-2 text-gray-900;
     }
 
-    .value {
-        @apply font-semibold;
+    section .underline-title {
+        @apply h-0.5 w-20 bg-yellow-500 rounded mb-4;
     }
 
+    p {
+        @apply py-1;
+    }
+
+    p span.key {
+        @apply font-medium;
+    }
+
+    p span.value {
+        @apply pl-2 text-indigo-500;
+    }
 </style>
