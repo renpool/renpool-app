@@ -63,7 +63,8 @@ export const NETWORKS = {
 
 export const SUPPORTED_CHAIN_IDS = Object.keys(NETWORKS).map(key => parseInt(key, 10))
 
-export const NETWORK = NETWORKS[import.meta.env.VITE_CHAIN_ID];
+export const CHAIN_ID = import.meta.env.VITE_CHAIN_ID;
+export const NETWORK = NETWORKS[CHAIN_ID];
 
 export enum ContractNames {
   RenPool = 'RenPool',
