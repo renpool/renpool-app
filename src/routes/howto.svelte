@@ -5,7 +5,7 @@
     import { NETWORK, FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/config";
     import { formatUnits } from "ethers/lib/utils";
 
-    const CHAIN_ID = import.meta.env.VITE_CHAIN_ID;
+    const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);
     const REN_FAUCET_LINK =
         "https://forum.renproject.io/t/is-there-any-ren-faucet-on-kovan/904/3";
 </script>
