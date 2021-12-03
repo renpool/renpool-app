@@ -4,7 +4,7 @@ import { deployments, IERC20Standard } from "renpool-contracts";
 import { DECIMALS } from "$lib/config";
 import { browser } from '$app/env';
 
-const CHAIN_ID = import.meta.env.VITE_CHAIN_ID.toString();
+const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);
 
 async function balanceOf(
     address: string,
@@ -22,7 +22,8 @@ async function balanceOf(
 
 class Wallet {
     hasMetaMask: boolean | null = null;
-    chainId: string | null = null;
+    chainId: number | null = null;
+    isWrongChain: boolean = false;
     selectedAddress: string | null = null;
     balance: string | null = null;
 
@@ -31,14 +32,18 @@ class Wallet {
         return this;
     }
 
-    setChainId(chainId: string) {
-        this.chainId = parseInt(chainId).toString();
+    setChainId(chainId: string | null) {
+        this.chainId = chainId ? parseInt(chainId) : null;
 
         if (this.chainId !== CHAIN_ID) {
+            this.isWrongChain = true;
             console.warn(
                 `Wallet provider's chainId ${this.chainId} does not match RenPool's chainId ${CHAIN_ID}`
             );
+        } else {
+            this.isWrongChain = false;
         }
+
         return this;
     }
 
@@ -54,28 +59,32 @@ class Wallet {
 
 }
 
-function updateBalance() {
-    const ethereum = window.ethereum;
-
-    console.assert(ethereum.chainId);
-    console.assert(ethereum.selectedAddress);
-
-    if (parseInt(ethereum.chainId).toString() === CHAIN_ID) {
-        const provider = new ethers.providers.Web3Provider(ethereum);
-        balanceOf(ethereum.selectedAddress, provider).then(balance => {
-            balance = ethers.utils.formatUnits(balance, DECIMALS);
-            wallet.update(w => w.setBalance(balance));
-        })
-    } else {
-        wallet.update(w => w.setBalance(null));
-    }
-}
-
 export const wallet = writable(new Wallet());
 
 if (browser) {
-
     const ethereum = window.ethereum;
+
+    const updateBalance = () => {
+        if (!ethereum.chainId) {
+            console.debug(`Chain Id should be set, but it is ${ethereum.chainId}`);
+            return;
+        }
+
+        if (!ethereum.selectedAddress) {
+            console.debug(`Selected Address should be set, but it is ${ethereum.selectedAddress}`);
+            return;
+        }
+
+        if (parseInt(ethereum.chainId) === CHAIN_ID) {
+            const provider = new ethers.providers.Web3Provider(ethereum as any);
+            balanceOf(ethereum.selectedAddress, provider).then(balance => {
+                balance = ethers.utils.formatUnits(balance, DECIMALS);
+                wallet.update(w => w.setBalance(balance));
+            })
+        } else {
+            wallet.update(w => w.setBalance(null));
+        }
+    }
 
     if (ethereum === undefined) {
         wallet.update(w => w.setHasMetaMask(false));
@@ -90,15 +99,15 @@ if (browser) {
             updateBalance();
         }
 
-        ethereum.on("chainChanged", (chainId) => {
+        ethereum.on("chainChanged", chainId => {
             console.debug(`ethereum.chainChanged: ${chainId}`);
-            wallet.update(w => w.setChainId(chainId));
+            wallet.update(w => w.setChainId(chainId as any));
             updateBalance();
         });
 
-        ethereum.on("accountsChanged", (accounts) => {
+        ethereum.on("accountsChanged", accounts => {
             console.debug(`ethereum.accountChanged: ${accounts}`);
-            if (accounts.length === 0) {
+            if ((accounts as any).length === 0) {
                 wallet.update(w => w.setSelectedAddress(null).setBalance(null));
             } else {
                 wallet.update(w => w.setSelectedAddress(ethereum.selectedAddress));
