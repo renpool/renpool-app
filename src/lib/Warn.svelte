@@ -1,4 +1,8 @@
 <script lang="ts">
+    /**
+     * The title should provide a short description of what lead
+     * to this warning message.
+     */
     export let title: string;
 
     let dismissed = false;

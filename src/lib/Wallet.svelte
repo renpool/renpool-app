@@ -1,29 +1,36 @@
 <script lang="ts">
-    import { shortAccount } from "$lib/shortAccount";
-    import { wallet } from "$lib/wallet";
+    import { shortAccount } from "./shortAccount";
+
+    export let hasMetaMask: boolean | null = null;
+
+    export let chainId: number | null = null;
+
+    export let selectedAddress: string | null = null;
+
+    export let balance: string | null = null;
 
     async function connectToMetaMask() {
         await window.ethereum.enable();
     }
 </script>
 
-{$wallet.chainId}
+{chainId}
 
-{#if $wallet.hasMetaMask === null}
+{#if hasMetaMask === null}
     <div />
-{:else if !$wallet.hasMetaMask}
+{:else if !hasMetaMask}
     <a target="_blank" href="https://metamask.io/download">Install MetaMask</a>
-{:else if $wallet.selectedAddress === null}
+{:else if selectedAddress === null}
     <button on:click={connectToMetaMask}> Connect to MetaMask </button>
 {:else}
     <a
         href="/"
         class="text-xs no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"
-        >{$wallet.balance} REN
+        >{balance} REN
     </a>
 
     <span class="chip chip-blue">
-        <span class="text-xs">{shortAccount($wallet.selectedAddress)}</span>
+        <span class="text-xs">{shortAccount(selectedAddress)}</span>
     </span>
 {/if}
 
