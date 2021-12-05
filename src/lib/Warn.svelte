@@ -12,6 +12,12 @@
     }
 </script>
 
+<!-- 
+    @component
+    Displays a warning message that can be dismissed.
+
+ -->
+
 {#if !dismissed}
     <div
         class="flex bg-yellow-200 rounded-lg max-w-xl mb-4 relative"

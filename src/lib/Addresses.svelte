@@ -2,7 +2,14 @@
     import { NETWORK } from "./config";
     import EtherscanLink from "./EtherscanLink.svelte";
 
+    /**
+     * Displays the `owner` address of the RenPool.
+     */
     export let owner: string;
+
+    /**
+     * Displays the `nodeOperator` address of the RenPool
+     */
     export let nodeOperator: string;
 </script>
 
