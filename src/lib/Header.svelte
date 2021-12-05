@@ -1,6 +1,6 @@
 <script>
-	import Logo from "$lib/Logo.svelte";
-	import { NETWORK } from "$lib/config";
+	import Logo from "./Logo.svelte";
+	import { NETWORK } from "./config";
 </script>
 
 <header class="text-gray-600 bg-purple-100">
@@ -18,8 +18,8 @@
 			class="md:ml-auto flex flex-wrap items-center text-base justify-center"
 		>
 			<a href="/">Home</a>
-			<a href="/{NETWORK.contracts.REN_POOL}/deposit">Deposit</a>
-			<a href="/{NETWORK.contracts.REN_POOL}/withdraw">Withdraw</a>
+			<a href="/pools/{NETWORK.contracts.REN_POOL}/deposit">Deposit</a>
+			<a href="/pools/{NETWORK.contracts.REN_POOL}/withdraw">Withdraw</a>
 			<a href="/howto">How To</a>
 		</nav>
 		<slot />
