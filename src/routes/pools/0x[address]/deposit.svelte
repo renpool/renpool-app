@@ -21,19 +21,23 @@
 	let amount: number | null = null;
 
 	async function handleApprove() {
-		const provider = new providers.Web3Provider(window.ethereum as any);
-		const signer = provider.getSigner();
-
-		const renToken = new Contract(
-			deployments.kovan.renTokenAddr,
-			IERC20Standard.abi,
-			signer
-		);
+		const renToken = getRenToken();
 		(
 			await renToken.approve(NETWORK.contracts.REN_POOL, getAmount(), {
 				gasLimit: 200000,
 			})
 		).wait();
+	}
+
+	function getRenToken() {
+		const provider = new providers.Web3Provider(window.ethereum as any);
+		const signer = provider.getSigner();
+
+		return new Contract(
+			deployments.kovan.renTokenAddr,
+			IERC20Standard.abi,
+			signer
+		);
 	}
 
 	async function handleDeposit() {
@@ -46,6 +50,21 @@
 			signer
 		);
 		(await renPool.deposit(getAmount(), { gasLimit: 200000 })).wait();
+	}
+
+	let allowance;
+
+	async function checkForAllowance() {
+		const provider = new providers.Web3Provider(window.ethereum as any);
+		const signer = provider.getSigner();
+		const renToken = getRenToken();
+		// if (renToken == null || owner == null || spender == null) return false;
+		// if (value.lt(BigNumber.from(1))) return false;
+		allowance = await renToken.allowance(
+			await signer.getAddress(),
+			NETWORK.contracts.REN_POOL
+		);
+		// return allowance.sub(value).gte(BigNumber.from(0));
 	}
 
 	function getAmount() {
@@ -66,3 +85,5 @@
 <button on:click={handleApprove}>Approve</button>
 
 <button on:click={handleDeposit}>Deposit</button>
+
+<button on:click={checkForAllowance}>{allowance}</button>
