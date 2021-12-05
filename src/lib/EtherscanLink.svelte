@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { NETWORK } from "$lib/config";
+    import { NETWORK } from "./config";
 
     export let address: string;
 </script>

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { NETWORK } from "$lib/config";
+    import { NETWORK } from "./config";
     import EtherscanLink from "./EtherscanLink.svelte";
 
     export let owner: string;
