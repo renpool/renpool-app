@@ -54,7 +54,8 @@ interface ImportMetaEnv {
      * 
      */
     readonly VITE_CHAIN_ID: `${keyof typeof import('$lib/config').NETWORKS}`;
-    readonly INFURA_PROJECT_ID: string;
+    readonly VITE_JSON_RPC_PROVIDER_URL: string;
+    readonly VITE_REN_POOL: string;
 }
 
 interface ImportMeta {
@@ -62,7 +63,11 @@ interface ImportMeta {
 }
 
 /**
- * https://github.com/MetaMask/providers
+ * The `@metamask/providers` package is declared as a `devDependency` in `package.json`.
+ * This is because only its type definitions are being used here.
+ * See https://github.com/MetaMask/providers.
+ * 
+ * MetaMask injects the `ethereum` provider at runtime.
  */
 interface Window {
     ethereum: import('@metamask/providers').MetaMaskInpageProvider;
