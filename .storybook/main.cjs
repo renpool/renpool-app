@@ -1,20 +1,6 @@
-
 const preprocess = require('svelte-preprocess');
 
 module.exports = {
-// export default  {
-  core: {
-    builder: "storybook-builder-vite",
-  },
-
-  async viteFinal(config, { configType }) {
-    // customize the Vite config here
-    config.resolve.alias.foo = 'bar';
-    config.mode = 'kovan'
-
-    // return the customized config
-    return config;
-},
 
   "stories": [
     "../src/**/*.stories.mdx",
@@ -23,7 +9,22 @@ module.exports = {
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-svelte-csf"
+    "@storybook/addon-svelte-csf",
+    {
+      name: '@storybook/addon-postcss',
+      options: {
+        cssLoaderOptions: {
+          // When you have splitted your css over multiple files
+          // and use @import('./other-styles.css')
+          importLoaders: 1,
+        },
+        postcssLoaderOptions: {
+          // When using postCSS 8
+          implementation: require('postcss'),
+        },
+      }
+    },
+    "@storybook/addon-interactions",
   ],
   "framework": "@storybook/svelte",
   "svelteOptions": {

@@ -1,5 +1,8 @@
+<script context="module" lang="ts">
+    export const config = { renToken: "", renPool: "" };
+</script>
+
 <script lang="ts">
-    import { NETWORK } from "./config";
     import EtherscanLink from "./EtherscanLink.svelte";
 
     /**
@@ -33,13 +36,12 @@
             <tr>
                 <td class="key">RenToken</td>
                 <td class="value"
-                    ><EtherscanLink address={NETWORK.contracts.REN_TOKEN} /></td
+                    ><EtherscanLink address={config.renToken} /></td
                 >
             </tr>
             <tr>
                 <td class="key">RenPool</td>
-                <td class="value"
-                    ><EtherscanLink address={NETWORK.contracts.REN_POOL} /></td
+                <td class="value"><EtherscanLink address={config.renPool} /></td
                 >
             </tr>
             <tr>
@@ -52,7 +54,6 @@
             </tr>
         </tbody>
     </table>
-
 </section>
 
 <style lang="postcss">

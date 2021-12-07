@@ -1,6 +1,6 @@
 import { BigNumber } from '@ethersproject/bignumber'
 import { parseUnits } from '@ethersproject/units'
-import { DECIMALS } from '../lib/config'
+import { DECIMALS } from '../lib/net/confignfig'
 
 export const str2BN = (str: string): BigNumber => {
   let bn

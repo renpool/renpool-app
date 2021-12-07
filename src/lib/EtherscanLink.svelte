@@ -1,9 +1,13 @@
-<script lang="ts">
-    import { NETWORK } from "./config";
+<script context="module" lang="ts">
+    export const config: {
+        etherscan: string | null;
+    } = { etherscan: null };
+</script>
 
+<script lang="ts">
     export let address: string;
 </script>
 
-<a href="{NETWORK.etherscan}{address}" target="_blank" rel="noreferrer">
+<a href="{config.etherscan}{address}" target="_blank" rel="noreferrer">
     {address}
 </a>

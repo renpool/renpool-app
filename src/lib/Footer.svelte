@@ -1,5 +1,5 @@
 <script>
-  import Logo from './Logo.svelte';
+  import Logo from './img/Logo.svelte';
 </script>
 
 <footer class="text-gray-600 body-font">

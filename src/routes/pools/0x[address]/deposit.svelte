@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-	import { NETWORK, TENS } from "$lib/config";
+	import { NETWORK, TENS } from "$lib/net/config";
 
 	import { deployments, IERC20Standard, RenPool } from "renpool-contracts";
 	import { BigNumber, Contract, providers } from "ethers";

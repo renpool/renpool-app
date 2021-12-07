@@ -1,8 +1,8 @@
 <script>
-    import Howto from "$lib/howto/Howto.svelte";
-    import Step from "$lib/howto/Step.svelte";
+    import Howto from "$lib/Howto.svelte";
+    import Step from "$lib/HowtoStep.svelte";
 
-    import { NETWORK, FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/config";
+    import { NETWORK, FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/net/config";
     import { formatUnits } from "ethers/lib/utils";
 
     const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);

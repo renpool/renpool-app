@@ -1,6 +1,6 @@
 import { InjectedConnector } from '@web3-react/injected-connector'
 import { NetworkConnector } from '@web3-react/network-connector'
-import { SUPPORTED_CHAIN_IDS } from './config'
+import { SUPPORTED_CHAIN_IDS } from './net/confignfig'
 
 const INFURA_PROJECT_ID = process.env.REACT_APP_INFURA_PROJECT_ID
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID

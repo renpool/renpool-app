@@ -27,15 +27,17 @@
 <script lang="ts">
 	import "../app.css";
 
-	import { wallet } from "$lib/wallet";
-	import Header from "$lib/Header.svelte";
+	import { wallet } from "$lib/net/wallet";
+	import Header, { config } from "$lib/Header.svelte";
 	import Footer from "$lib/Footer.svelte";
 	import Wallet from "$lib/Wallet.svelte";
 	import Addresses from "$lib/Addresses.svelte";
 	import Stats from "$lib/Stats.svelte";
 	import Warn from "$lib/Warn.svelte";
-	import { NETWORK } from "$lib/config";
+	import { NETWORK } from "$lib/net/config";
 	import Network from "$lib/Network.svelte";
+
+	config.renPool = NETWORK.contracts.REN_POOL;
 
 	type PropsOf<
 		Component extends new (options: { target: any; props: any }) => any

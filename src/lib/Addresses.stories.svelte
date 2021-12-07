@@ -1,3 +1,7 @@
+<script context="module">
+    import { config } from "./EtherscanLink.svelte";
+    config.etherscan = "https://mainnet.etherscan.io/address/";
+</script>
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Addresses from "./Addresses.svelte";

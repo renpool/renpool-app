@@ -1,6 +1,10 @@
 <script lang="ts">
-    import { shortAccount } from "./shortAccount";
+    import { shortAccount } from "./net/shortAccount";
 
+    /**
+     * Indicates whether the MetaMask extension is installed in the browser.
+     * A `null` value should be used when loading the component.
+     */
     export let hasMetaMask: boolean | null = null;
 
     export let chainId: number | null = null;
@@ -17,11 +21,11 @@
 {chainId}
 
 {#if hasMetaMask === null}
-    <div />
+    <span>loading...</span>
 {:else if !hasMetaMask}
     <a target="_blank" href="https://metamask.io/download">Install MetaMask</a>
 {:else if selectedAddress === null}
-    <button on:click={connectToMetaMask}> Connect to MetaMask </button>
+    <button on:click={connectToMetaMask}>Connect to MetaMask</button>
 {:else}
     <a
         href="/"

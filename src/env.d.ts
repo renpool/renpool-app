@@ -53,7 +53,7 @@ interface ImportMetaEnv {
      * ```
      * 
      */
-    readonly VITE_CHAIN_ID: `${keyof typeof import('$lib/config').NETWORKS}`;
+    readonly VITE_CHAIN_ID: `${keyof typeof import('$lib/net/config').NETWORKS}`;
     readonly VITE_JSON_RPC_PROVIDER_URL: string;
     readonly VITE_REN_POOL: string;
 }

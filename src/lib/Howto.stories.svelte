@@ -1,10 +1,10 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Howto from "./Howto.svelte";
-    import Step from "./Step.svelte";
+    import Step from "./HowtoStep.svelte";
 </script>
 
-<Meta title="$lib/howto/Howto" component={Howto} argTypes={{}} />
+<Meta title="$lib/Howto" component={Howto} argTypes={{}} />
 
 <Template let:args>
     <Howto {...args} />

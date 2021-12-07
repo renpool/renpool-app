@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 import { Contract, ethers } from "ethers";
 import { deployments, IERC20Standard } from "renpool-contracts";
-import { DECIMALS } from "$lib/config";
+import { DECIMALS } from "$lib/net/config";
 import { browser } from '$app/env';
 
 const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);

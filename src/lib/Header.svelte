@@ -1,6 +1,9 @@
+<script context="module" lang="ts">
+	export const config: { renPool: string | null } = { renPool: null };
+</script>
+
 <script>
-	import Logo from "./Logo.svelte";
-	import { NETWORK } from "./config";
+	import Logo from "./img/Logo.svelte";
 </script>
 
 <header class="text-gray-600 bg-purple-100">
@@ -18,8 +21,8 @@
 			class="md:ml-auto flex flex-wrap items-center text-base justify-center"
 		>
 			<a href="/">Home</a>
-			<a href="/pools/{NETWORK.contracts.REN_POOL}/deposit">Deposit</a>
-			<a href="/pools/{NETWORK.contracts.REN_POOL}/withdraw">Withdraw</a>
+			<a href="/pools/{config.renPool}/deposit">Deposit</a>
+			<a href="/pools/{config.renPool}/withdraw">Withdraw</a>
 			<a href="/howto">How To</a>
 		</nav>
 		<slot />
