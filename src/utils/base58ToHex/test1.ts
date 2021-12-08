@@ -1,4 +1,4 @@
-import { darknodeIDBase58ToHex } from './'
+import { darknodeIDBase58ToHex } from '.'
 
 test('converts base58 to hex', () => {
   const input = '8MHJ9prQt7UGupfZKSMVes3VzPrGBB'
