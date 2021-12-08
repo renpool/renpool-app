@@ -23,14 +23,6 @@
 </section>
 
 <style lang="postcss">
-    section h2 {
-        @apply sm:text-xl text-xl font-medium mb-2 text-gray-900;
-    }
-
-    section .underline-title {
-        @apply h-0.5 w-20 bg-yellow-500 rounded mb-4;
-    }
-
     p {
         @apply py-1;
     }
