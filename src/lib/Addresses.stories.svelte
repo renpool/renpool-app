@@ -1,10 +1,10 @@
-<script context="module">
-    import { config } from "./EtherscanLink.svelte";
-    config.etherscan = "https://mainnet.etherscan.io/address/";
-</script>
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Addresses from "./Addresses.svelte";
+    import { setContext } from "svelte";
+
+    const ETHERSCAN = "https://mainnet.etherscan.io/address/";
+    setContext("etherscan", ETHERSCAN);
 </script>
 
 <Meta title="$lib/Addresses" component={Addresses} argTypes={{}} />
