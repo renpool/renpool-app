@@ -28,20 +28,29 @@
 	import "../app.css";
 
 	import { wallet } from "$lib/net/wallet";
-	import Header, { config } from "$lib/Header.svelte";
+	import Header from "$lib/Header.svelte";
 	import Main from "$lib/Main.svelte";
 	import Footer from "$lib/Footer.svelte";
 	import Wallet from "$lib/Wallet.svelte";
-	import { NETWORK } from "$lib/net/config";
-
-	config.renPool = NETWORK.contracts.REN_POOL;
+	import { NETWORK } from "./_config";
+	import { Contracts } from "$lib/net/contracts";
+	import { setContext } from "svelte";
+	import { providers } from "ethers";
 
 	export let stats: PropsOf<typeof Main>["stats"] | null = null;
 	export let addresses: PropsOf<typeof Main>["addresses"] | null = null;
 	export let network: PropsOf<typeof Main>["network"] | null = null;
+
+	setContext("contracts", () =>
+		Contracts(
+			{ renTokenAddr: NETWORK.contracts.REN_TOKEN },
+			new providers.Web3Provider(window.ethereum as any)
+		)
+	);
+	setContext("etherscan", NETWORK.etherscan);
 </script>
 
-<Header>
+<Header renPoolAddr={NETWORK.contracts.REN_POOL}>
 	<Wallet {...$wallet} />
 </Header>
 <Main
