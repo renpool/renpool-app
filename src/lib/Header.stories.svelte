@@ -6,7 +6,7 @@
 <Meta title="$lib/Header" component={Header} argTypes={{}} />
 
 <Template let:args>
-    <Header {...args} />
+    <Header renPoolAddr="0x1234" {...args} />
 </Template>
 
 <Story
