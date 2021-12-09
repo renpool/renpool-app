@@ -1,17 +1,16 @@
-<script context="module">
-    import { config } from "./EtherscanLink.svelte";
-    config.etherscan = "https://kovan.etherscan.io/address/";
-</script>
-
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
+    import { setContext } from "svelte";
     import EtherscanLink from "./EtherscanLink.svelte";
+
+    const ETHERSCAN = "https://kovan.etherscan.io/address/";
+    setContext("etherscan", ETHERSCAN);
 </script>
 
 <Meta title="$lib/EtherscanLink" component={EtherscanLink} argTypes={{}} />
 
 <Template let:args>
-    <p>Using config: {JSON.stringify(config)}</p>
+    <p>Using config: {ETHERSCAN}</p>
     <EtherscanLink {...args} />
 </Template>
 
