@@ -37,3 +37,10 @@
 type PropsOf<
     Component extends new (options: { target: any; props: any }) => any
     > = Exclude<ConstructorParameters<Component>[0]["props"], undefined>;
+
+/**
+ * Ethereum `Address`es in _ethers.js_ are represented as hexadecimal `string`s.
+ * They always start with the `0x` prefix,
+ * for example `0xbF115A5538290D234fA31e917241a58A20a847Bc`
+ */
+type Address = string;
