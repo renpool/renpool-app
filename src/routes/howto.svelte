@@ -2,7 +2,8 @@
     import Howto from "$lib/Howto.svelte";
     import Step from "$lib/HowtoStep.svelte";
 
-    import { NETWORK, FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/net/config";
+    import { NETWORK } from "src/routes/_config";
+    import { FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/net/bond";
     import { formatUnits } from "ethers/lib/utils";
 
     const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);
@@ -11,7 +12,7 @@
 </script>
 
 <svelte:head>
-	<title>How To | RenPool</title>
+    <title>How To | RenPool</title>
 </svelte:head>
 
 <Howto title="Instructions">

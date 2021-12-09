@@ -1,4 +1,4 @@
-import { NETWORK } from '$lib/net/config';
+import { NETWORK } from '../_config';
 import { Contract, providers } from "ethers";
 import { RenPool } from "renpool-contracts";
 
