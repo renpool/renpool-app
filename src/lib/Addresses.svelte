@@ -57,14 +57,6 @@
 </section>
 
 <style lang="postcss">
-    h2 {
-        @apply sm:text-xl text-xl font-medium mb-2 text-gray-900;
-    }
-
-    .underline-title {
-        @apply h-0.5 w-20 bg-yellow-500 rounded mb-5;
-    }
-
     td {
         @apply py-2 pr-2 text-sm whitespace-nowrap;
     }
