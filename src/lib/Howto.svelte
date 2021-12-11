@@ -14,13 +14,3 @@
     <slot><em>no steps were provided</em></slot>
   </div>
 </section>
-
-<style lang="postcss">
-  h1 {
-    @apply sm:text-3xl text-2xl font-medium mb-2 text-gray-900;
-  }
-
-  .underline-title {
-    @apply h-1 w-20 bg-yellow-500 rounded;
-  }
-</style>
