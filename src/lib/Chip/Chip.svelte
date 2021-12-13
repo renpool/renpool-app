@@ -1,11 +1,8 @@
 <script lang="ts">
   export let variant: 'default' | 'info' |  'success' | 'warning' | 'danger';
-
-  let klass = '';
-  export { klass as class };
 </script>
 
-<span class={`chip chip-${variant} ${klass}`}>
+<span class={`chip chip-${variant} ${$$props.class}`}>
   <slot></slot>
 </span>
 
