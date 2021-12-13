@@ -63,3 +63,15 @@
     0x123...456
   </Chip>
 </Story>
+
+<Story
+  name="danger class text-xs"
+  args={{
+    variant: 'danger',
+    class: 'text-xs'
+  }}
+>
+  <Chip variant="danger" class="text-xs">
+    0x123...456
+  </Chip>
+</Story>

@@ -1,10 +1,13 @@
 <script lang="ts">
-  import type { Variants } from './types'
+  type Variants = 'default' | 'info' |  'success' | 'warning' | 'danger';
 
   export let variant: Variants;
+
+  let klass = '';
+  export { klass as class };
 </script>
 
-<span class={`chip chip-${variant}`}>
+<span class={`chip chip-${variant} ${klass}`}>
   <slot></slot>
 </span>
 

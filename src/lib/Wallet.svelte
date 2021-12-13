@@ -34,7 +34,7 @@
         >{balance} REN
     </a>
 
-    <Chip variant="info">
-        <span class="text-xs">{shortAccount(selectedAddress)}</span>
+    <Chip variant="info" class="text-xs">
+        {shortAccount(selectedAddress)}
     </Chip>
 {/if}
