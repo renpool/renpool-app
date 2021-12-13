@@ -7,7 +7,7 @@
     setContext("etherscan", ETHERSCAN);
 </script>
 
-<Meta title="$lib/Addresses" component={Addresses} argTypes={{}} />
+<Meta title="$lib/Addresses" component="{Addresses}" argTypes="{{}}" />
 
 <Template let:args>
     <Addresses {...args} />
@@ -15,8 +15,8 @@
 
 <Story
     name="Default"
-    args={{
-        owner: "0x5678",
-        nodeOperator: "0x1234",
-    }}
+    args="{{
+        owner: '0x5678',
+        nodeOperator: '0x1234',
+    }}"
 />

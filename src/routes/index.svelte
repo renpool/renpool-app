@@ -1,3 +1,3 @@
 <svelte:head>
-	<title>Home | RenPool</title>
+    <title>Home | RenPool</title>
 </svelte:head>

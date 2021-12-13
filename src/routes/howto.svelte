@@ -24,8 +24,10 @@
     >
     <Step title="Get Some Ether">
         <div slot="desc">
-            Head over <a target="_blank" rel="noreferrer" href={NETWORK.faucet}
-                >{NETWORK.faucet}</a
+            Head over <a
+                target="_blank"
+                rel="noreferrer"
+                href="{NETWORK.faucet}">{NETWORK.faucet}</a
             >
             &nbsp;and get some test ETH to pay for transactions.
         </div>
@@ -43,7 +45,7 @@
                 Request some REN test tokens from the ren protocol. See <a
                     target="_blank"
                     rel="noreferrer"
-                    href={REN_FAUCET_LINK}>{REN_FAUCET_LINK}</a
+                    href="{REN_FAUCET_LINK}">{REN_FAUCET_LINK}</a
                 >. To verify that the tokens are in your wallet, switch to the
                 <span>Assets</span>
                 tab in your MetaMask and press the <span>Add Tokens</span> button.

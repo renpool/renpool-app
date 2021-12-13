@@ -10,22 +10,22 @@
     }
 </script>
 
-<Meta title="$lib/Howto" component={Howto} argTypes={{}} />
+<Meta title="$lib/Howto" component="{Howto}" argTypes="{{}}" />
 
 <Template let:args>
     <Howto {...args} />
 </Template>
 
-<Story name="Empty" args={{}} />
+<Story name="Empty" args="{{}}" />
 
 <Story
     name="No content"
-    args={{
+    args="{{
         title: "Here's your howto title",
-    }}
+    }}"
 />
 
-<Story name="With Content" args={{}}>
+<Story name="With Content" args="{{}}">
     <Howto title="Instructions">
         <Step title="Should be Step #1">
             <div slot="desc">Something about what to do in this step #1.</div>
@@ -39,14 +39,16 @@
     </Howto>
 </Story>
 
-<Story name="Multiple Howtos" args={{}}>
-    <button on:click={handleClick}>Add a new step, it keeps the right context</button>
+<Story name="Multiple Howtos" args="{{}}">
+    <button on:click="{handleClick}"
+        >Add a new step, it keeps the right context</button
+    >
     <Howto title="Instructions #1">
         <Step title="Should be Step #1.1">
             <div slot="desc">Something about what to do in this step #1.</div>
         </Step>
         {#each steps as step}
-            <Step title={step} />
+            <Step title="{step}" />
         {/each}
     </Howto>
     <Howto title="Instructions #2">

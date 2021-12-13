@@ -4,33 +4,33 @@ import { isMobile } from "react-device-detect";
 import { injected } from "../lib/net/connectorstors";
 
 export const useEagerConnect = (): boolean => {
-  const { activate, active } = useWeb3React(); // specifically using useWeb3React because of what this hook does
-  const [tried, setTried] = useState<boolean>(false);
+    const { activate, active } = useWeb3React(); // specifically using useWeb3React because of what this hook does
+    const [tried, setTried] = useState<boolean>(false);
 
-  useEffect(() => {
-    injected.isAuthorized().then((isAuthorized) => {
-      if (isAuthorized) {
-        activate(injected, undefined, true).catch(() => {
-          setTried(true);
+    useEffect(() => {
+        injected.isAuthorized().then(isAuthorized => {
+            if (isAuthorized) {
+                activate(injected, undefined, true).catch(() => {
+                    setTried(true);
+                });
+            } else {
+                if (isMobile && window.ethereum) {
+                    activate(injected, undefined, true).catch(() => {
+                        setTried(true);
+                    });
+                } else {
+                    setTried(true);
+                }
+            }
         });
-      } else {
-        if (isMobile && window.ethereum) {
-          activate(injected, undefined, true).catch(() => {
+    }, [activate]); // intentionally only running on mount (make sure it's only mounted once :))
+
+    // if the connection worked, wait until we get confirmation of that to flip the flag
+    useEffect(() => {
+        if (active) {
             setTried(true);
-          });
-        } else {
-          setTried(true);
         }
-      }
-    });
-  }, [activate]); // intentionally only running on mount (make sure it's only mounted once :))
+    }, [active]);
 
-  // if the connection worked, wait until we get confirmation of that to flip the flag
-  useEffect(() => {
-    if (active) {
-      setTried(true);
-    }
-  }, [active]);
-
-  return tried;
+    return tried;
 };

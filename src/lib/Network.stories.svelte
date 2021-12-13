@@ -3,7 +3,7 @@
     import Network from "./Network.svelte";
 </script>
 
-<Meta title="$lib/Network" component={Network} argTypes={{}} />
+<Meta title="$lib/Network" component="{Network}" argTypes="{{}}" />
 
 <Template let:args>
     <Network {...args} />
@@ -11,18 +11,18 @@
 
 <Story
     name="Empty"
-    args={{
-        totalPooled: "100000",
+    args="{{
+        totalPooled: '100000',
         isLocked: false,
-        userBalance: "1000",
-    }}
+        userBalance: '1000',
+    }}"
 />
 
 <Story
     name="Locked"
-    args={{
-        totalPooled: "100000",
+    args="{{
+        totalPooled: '100000',
         isLocked: true,
-        userBalance: "1000",
-    }}
+        userBalance: '1000',
+    }}"
 />

@@ -52,10 +52,10 @@
 
 <div>Using RenPool address {renPoolAddr}</div>
 
-<input bind:value={amount} />
+<input bind:value="{amount}" />
 
-<button on:click={onApproveClick}>Approve</button>
+<button on:click="{onApproveClick}">Approve</button>
 
-<button on:click={onDepositClick}>Deposit</button>
+<button on:click="{onDepositClick}">Deposit</button>
 
-<button on:click={onCheckForAllowance}>{allowance}</button>
+<button on:click="{onCheckForAllowance}">{allowance}</button>

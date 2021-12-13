@@ -6,7 +6,7 @@
 
 <section>
     <h2>Stats</h2>
-    <div class="underline-title" />
+    <div class="underline-title"></div>
 
     <p>
         <span class="key">Total Pooled</span>

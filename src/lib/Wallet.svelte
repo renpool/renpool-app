@@ -26,7 +26,7 @@
 {:else if !hasMetaMask}
     <a target="_blank" href="https://metamask.io/download">Install MetaMask</a>
 {:else if selectedAddress === null}
-    <button on:click={connectToMetaMask}>Connect to MetaMask</button>
+    <button on:click="{connectToMetaMask}">Connect to MetaMask</button>
 {:else}
     <a
         href="/"

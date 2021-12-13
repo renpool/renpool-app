@@ -10,7 +10,7 @@
 
 <div class="step-container">
     <div class="step-line-pos">
-        <div class="step-line" />
+        <div class="step-line"></div>
     </div>
     <div class="step-no">{index}</div>
     <div class="step-card">
@@ -24,7 +24,7 @@
                 class="w-12 h-12"
                 viewBox="0 0 24 24"
             >
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
             </svg>
         </div>
         <div class="step-desc">

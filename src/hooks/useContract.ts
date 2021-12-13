@@ -6,25 +6,25 @@ import { useActiveWeb3React } from "./useActiveWeb3React";
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID;
 
 export const useContract = (
-  address: string,
-  abi: ContractInterface
+    address: string,
+    abi: ContractInterface
 ): Contract | null => {
-  const { connector, library, chainId, account } = useActiveWeb3React();
+    const { connector, library, chainId, account } = useActiveWeb3React();
 
-  const [contract, setContract] = useState<Contract>();
+    const [contract, setContract] = useState<Contract>();
 
-  useEffect(() => {
-    const load = (): Contract =>
-      new Contract(
-        address,
-        abi,
-        connector === injected ? library.getSigner(account) : library
-      );
+    useEffect(() => {
+        const load = (): Contract =>
+            new Contract(
+                address,
+                abi,
+                connector === injected ? library.getSigner(account) : library
+            );
 
-    if (chainId === parseInt(CHAIN_ID, 10)) {
-      setContract(load());
-    }
-  }, [connector, chainId]);
+        if (chainId === parseInt(CHAIN_ID, 10)) {
+            setContract(load());
+        }
+    }, [connector, chainId]);
 
-  return contract;
+    return contract;
 };
