@@ -1,13 +1,13 @@
-import { BigNumber } from '@ethersproject/bignumber'
-import { parseUnits } from '@ethersproject/units'
-import { DECIMALS } from '../lib/net/confignfig'
+import { BigNumber } from "@ethersproject/bignumber";
+import { parseUnits } from "@ethersproject/units";
+import { DECIMALS } from "../lib/net/confignfig";
 
 export const str2BN = (str: string): BigNumber => {
-  let bn
+  let bn;
   try {
-    bn = BigNumber.from(parseUnits(str, DECIMALS)) // input * 10^18
+    bn = BigNumber.from(parseUnits(str, DECIMALS)); // input * 10^18
   } catch (e) {
-    bn = BigNumber.from(0)
+    bn = BigNumber.from(0);
   }
-  return bn
-}
+  return bn;
+};

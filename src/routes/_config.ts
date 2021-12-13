@@ -1,4 +1,4 @@
-import { deployments } from 'renpool-contracts'
+import { deployments } from "renpool-contracts";
 
 // export const NETWORK_CONTEXT_NAME = 'NETWORK'
 
@@ -6,13 +6,13 @@ import { deployments } from 'renpool-contracts'
 
 export const NETWORKS = {
   1: {
-    name: 'Mainnet',
-    faucet: 'Mainnet',
-    etherscan: 'https://etherscan.io/address/',
+    name: "Mainnet",
+    faucet: "Mainnet",
+    etherscan: "https://etherscan.io/address/",
     contracts: {
       REN_TOKEN: deployments.mainnet.renTokenAddr,
       DARKNODE_REGISTRY: deployments.mainnet.darknodeRegistryAddr,
-      REN_POOL: '0x0000000000000000000000000000000000000000',
+      REN_POOL: "0x0000000000000000000000000000000000000000",
     },
   },
   // 3: {
@@ -31,9 +31,10 @@ export const NETWORKS = {
   //   etherscan: 'https://goerli.etherscan.io/address/',
   // },
   42: {
-    name: 'Kovan',
-    faucet: 'https://support.mycrypto.com/how-to/getting-started/where-to-get-testnet-ether',
-    etherscan: 'https://kovan.etherscan.io/address/',
+    name: "Kovan",
+    faucet:
+      "https://support.mycrypto.com/how-to/getting-started/where-to-get-testnet-ether",
+    etherscan: "https://kovan.etherscan.io/address/",
     contracts: {
       REN_TOKEN: deployments.kovan.renTokenAddr,
       DARKNODE_REGISTRY: deployments.kovan.darknodeRegistryAddr,
@@ -42,16 +43,16 @@ export const NETWORKS = {
     },
   },
   1337: {
-    name: 'Localhost 8545',
-    faucet: 'https://faucet.rinkeby.io',
-    etherscan: 'https://etherscan.io/address/',
+    name: "Localhost 8545",
+    faucet: "https://faucet.rinkeby.io",
+    etherscan: "https://etherscan.io/address/",
     contracts: {
-      REN_TOKEN: '0x0000000000000000000000000000000000000000',
-      DARKNODE_REGISTRY: '0x0000000000000000000000000000000000000000',
-      REN_POOL: '0x0000000000000000000000000000000000000000',
+      REN_TOKEN: "0x0000000000000000000000000000000000000000",
+      DARKNODE_REGISTRY: "0x0000000000000000000000000000000000000000",
+      REN_POOL: "0x0000000000000000000000000000000000000000",
     },
   },
-}
+};
 
 // export const SUPPORTED_CHAIN_IDS = Object.keys(NETWORKS).map(key => parseInt(key, 10))
 
@@ -59,11 +60,11 @@ export const CHAIN_ID = import.meta.env.VITE_CHAIN_ID;
 export const NETWORK = NETWORKS[CHAIN_ID];
 
 // export enum ContractNames {
-  // RenPool = 'RenPool',
-  // RenToken = 'RenToken',
-  // ^ Implementation of the Ren Token used when network === '1337'.
-  // In live networks we use the IERC20 interface.
-  // See /context/RenTokenProvider.tsx
+// RenPool = 'RenPool',
+// RenToken = 'RenToken',
+// ^ Implementation of the Ren Token used when network === '1337'.
+// In live networks we use the IERC20 interface.
+// See /context/RenTokenProvider.tsx
 // }
 
 // export const DEFAULT_REQUEST_TIMEOUT = 60 * 1000
