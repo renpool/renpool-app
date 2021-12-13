@@ -16,7 +16,7 @@
   }}
 >
   <Chip variant="default">
-    <span>0x123...456</span>
+    0x123...456
   </Chip>
 </Story>
 
@@ -27,7 +27,7 @@
   }}
 >
   <Chip variant="info">
-    <span>0x123...456</span>
+    0x123...456
   </Chip>
 </Story>
 
@@ -38,7 +38,7 @@
   }}
 >
   <Chip variant="success">
-    <span>0x123...456</span>
+    0x123...456
   </Chip>
 </Story>
 
@@ -49,7 +49,7 @@
   }}
 >
   <Chip variant="warning">
-    <span>0x123...456</span>
+    0x123...456
   </Chip>
 </Story>
 
@@ -60,6 +60,6 @@
   }}
 >
   <Chip variant="danger">
-    <span>0x123...456</span>
+    0x123...456
   </Chip>
 </Story>
