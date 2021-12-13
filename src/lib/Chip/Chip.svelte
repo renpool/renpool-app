@@ -1,7 +1,5 @@
 <script lang="ts">
-  type Variants = 'default' | 'info' |  'success' | 'warning' | 'danger';
-
-  export let variant: Variants;
+  export let variant: 'default' | 'info' |  'success' | 'warning' | 'danger';
 
   let klass = '';
   export { klass as class };
