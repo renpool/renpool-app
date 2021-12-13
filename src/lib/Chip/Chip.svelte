@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Variants } from './types'
 
-  export let variant: keyof typeof Variants
+  export let variant: Variants;
 </script>
 
 <span class={`chip chip-${variant}`}>
