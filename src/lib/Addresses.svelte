@@ -18,7 +18,7 @@
 
 <section>
     <h2>Addresses</h2>
-    <div class="underline-title" />
+    <div class="underline-title"></div>
 
     <table class="w-full text-left border-collapse">
         <thead>
@@ -35,22 +35,25 @@
         <tbody class="align-baseline">
             <tr>
                 <td class="key">RenToken</td>
-                <td class="value"
-                    ><EtherscanLink address={config.renToken} /></td
-                >
+                <td class="value">
+                    <EtherscanLink address="{config.renToken}" />
+                </td>
             </tr>
             <tr>
                 <td class="key">RenPool</td>
-                <td class="value"><EtherscanLink address={config.renPool} /></td
-                >
+                <td class="value">
+                    <EtherscanLink address="{config.renPool}" />
+                </td>
             </tr>
             <tr>
                 <td class="key">Owner</td>
-                <td class="value"><EtherscanLink address={owner} /></td>
+                <td class="value"><EtherscanLink address="{owner}" /></td>
             </tr>
             <tr>
                 <td class="key">Node Operator</td>
-                <td class="value"><EtherscanLink address={nodeOperator} /></td>
+                <td class="value">
+                    <EtherscanLink address="{nodeOperator}" />
+                </td>
             </tr>
         </tbody>
     </table>

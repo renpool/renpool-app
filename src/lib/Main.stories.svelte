@@ -3,7 +3,7 @@
     import Main from "./Main.svelte";
 </script>
 
-<Meta title="$lib/Main" component={Main} argTypes={{}} />
+<Meta title="$lib/Main" component="{Main}" argTypes="{{}}" />
 
 <Template let:args>
     <Main {...args} />
@@ -11,29 +11,29 @@
 
 <Story
     name="!isWrong"
-    args={{
+    args="{{
         chain: { isWrong: false },
         stats: {},
         addresses: {},
         network: {},
-    }}
+    }}"
 />
 
 <Story
     name="isWrong|localnet"
-    args={{
-        chain: { isWrong: true, shouldConnectTo: "localnet" },
+    args="{{
+        chain: { isWrong: true, shouldConnectTo: 'localnet' },
         stats: {},
         addresses: {},
         network: {},
-    }}
+    }}"
 />
 
 <Story
     name="no stats"
-    args={{
+    args="{{
         chain: { isWrong: false },
         addresses: {},
         network: {},
-    }}
+    }}"
 />

@@ -1,26 +1,25 @@
-import { useState } from 'react'
+import { useState } from "react";
 
 export interface DisabledApi {
-  disabled: boolean,
-  disableBtn: () => void,
-  enableBtn: () => void,
+    disabled: boolean;
+    disableBtn: () => void;
+    enableBtn: () => void;
 }
 
 export const useDisabled = (): DisabledApi => {
-  const [disabled, setDisabled] = useState<boolean>(false)
+    const [disabled, setDisabled] = useState<boolean>(false);
 
-  const disableBtn = () => {
-    setDisabled(true)
-  }
+    const disableBtn = () => {
+        setDisabled(true);
+    };
 
-  const enableBtn = () => {
-    setDisabled(false)
-  }
+    const enableBtn = () => {
+        setDisabled(false);
+    };
 
-  return {
-    disabled,
-    disableBtn,
-    enableBtn,
-  }
-}
-
+    return {
+        disabled,
+        disableBtn,
+        enableBtn,
+    };
+};

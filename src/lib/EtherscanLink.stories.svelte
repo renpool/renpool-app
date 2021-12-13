@@ -7,18 +7,18 @@
     setContext("etherscan", ETHERSCAN);
 </script>
 
-<Meta title="$lib/EtherscanLink" component={EtherscanLink} argTypes={{}} />
+<Meta title="$lib/EtherscanLink" component="{EtherscanLink}" argTypes="{{}}" />
 
 <Template let:args>
     <p>Using config: {ETHERSCAN}</p>
     <EtherscanLink {...args} />
 </Template>
 
-<Story name="Empty" args={{}} />
+<Story name="Empty" args="{{}}" />
 
 <Story
     name="Address -- RenPool"
-    args={{
-        address: "0xf1e98770ab8ed1364371b8c7dbda56633f7cb6a9",
-    }}
+    args="{{
+        address: '0xf1e98770ab8ed1364371b8c7dbda56633f7cb6a9',
+    }}"
 />

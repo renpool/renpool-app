@@ -7,7 +7,7 @@
 
 <section>
     <h2>Network Settings</h2>
-    <div class="underline-title" />
+    <div class="underline-title"></div>
 
     <p>
         <span class="key">Name</span>

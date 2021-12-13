@@ -4,43 +4,43 @@
     import Wallet from "./Wallet.svelte";
 </script>
 
-<Meta title="$lib/Wallet" component={Wallet} argTypes={{}} />
+<Meta title="$lib/Wallet" component="{Wallet}" argTypes="{{}}" />
 
 <Template let:args>
     <Wallet {...args} />
 </Template>
 
-<Story name="Loading MetaMask" args={{}} />
+<Story name="Loading MetaMask" args="{{}}" />
 
 <Story
     name="MetaMask not installed"
-    args={{
+    args="{{
         hasMetaMask: false,
-    }}
+    }}"
 />
 
 <Story
     name="MetaMask installed"
-    args={{
+    args="{{
         hasMetaMask: true,
-    }}
+    }}"
 />
 
 <Story
     name="MetaMask connected"
-    args={{
+    args="{{
         hasMetaMask: true,
         chainId: 99,
-        selectedAddress: "0xasdf",
-    }}
+        selectedAddress: '0xasdf',
+    }}"
 />
 
 <Story
     name="MetaMask w/balance"
-    args={{
+    args="{{
         hasMetaMask: true,
         chainId: 99,
-        selectedAddress: "0xasdf",
-        balance: "10000",
-    }}
+        selectedAddress: '0xasdf',
+        balance: '10000',
+    }}"
 />
