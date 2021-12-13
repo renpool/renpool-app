@@ -1,5 +1,6 @@
 <script lang="ts">
     import { shortAccount } from "./net/shortAccount";
+    import Chip from "./Chip/Chip.svelte";
 
     /**
      * Indicates whether the MetaMask extension is installed in the browser.
@@ -33,17 +34,7 @@
         >{balance} REN
     </a>
 
-    <span class="chip chip-blue">
-        <span class="text-xs">{shortAccount(selectedAddress)}</span>
-    </span>
+    <Chip variant="info" class="text-xs">
+        {shortAccount(selectedAddress)}
+    </Chip>
 {/if}
-
-<style lang="postcss">
-    .chip {
-        @apply justify-center items-center m-1 font-medium py-1 px-2 rounded-full border;
-    }
-
-    .chip-blue {
-        @apply text-blue-700 bg-blue-100 border-blue-300;
-    }
-</style>
