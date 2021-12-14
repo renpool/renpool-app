@@ -13,15 +13,15 @@ export async function get() {
                 name: network.name,
                 chainId: network.chainId,
                 ensAddress: network.ensAddress,
-                provider: new URL(providerURL).origin
-            }
-        }
+                provider: new URL(providerURL).origin,
+            },
+        };
     } catch (err) {
         return {
             status: 503,
             body: {
                 message: err,
-            }
-        }
+            },
+        };
     }
 }

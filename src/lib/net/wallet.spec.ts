@@ -2,18 +2,18 @@
  * @jest-environment jsdom
  */
 
-import '@testing-library/jest-dom'
+import "@testing-library/jest-dom";
 // import { render, fireEvent } from '@testing-library/svelte';
 // import Warn from './Warn.svelte';
 
-import { initializeProvider } from '@metamask/providers';
+import { initializeProvider } from "@metamask/providers";
 
-jest.setTimeout(10000)
-import { Duplex } from 'stream';
+jest.setTimeout(10000);
+import { Duplex } from "stream";
 // import { checkForAllowance } from './deposit';
-import { Contract, providers, Wallet } from 'ethers';
-import { deployments, IERC20Standard } from 'renpool-contracts';
-import type { ExternalProvider } from '@ethersproject/providers';
+import { Contract, providers, Wallet } from "ethers";
+import { deployments, IERC20Standard } from "renpool-contracts";
+import type { ExternalProvider } from "@ethersproject/providers";
 
 export default class DuplexStream extends Duplex {
     constructor() {
@@ -23,13 +23,13 @@ export default class DuplexStream extends Duplex {
     }
 
     pushToSubstream(name: string, data: unknown) {
-        console.log('push')
-        console.log(name)
+        console.log("push");
+        console.log(name);
         this.push({ name, data });
     }
 
     _write(_data: unknown, _encoding: string, callback: any) {
-        console.log(_data)
+        console.log(_data);
         callback();
     }
 
@@ -37,19 +37,17 @@ export default class DuplexStream extends Duplex {
         return undefined;
     }
 }
-describe('Warn', () => {
-
-    it('changes count when button is clicked', async () => {
-
+describe("Warn", () => {
+    it("changes count when button is clicked", async () => {
         // Create a stream to a remote provider:
         const metamaskStream = new DuplexStream();
-        metamaskStream.on('data', (data) => console.log(data));
+        metamaskStream.on("data", data => console.log(data));
 
         // this will initialize the provider and set it as window.ethereum
         // initializeProvider({
         //     connectionStream: metamaskStream,
         // });
-        // Create a stream to a remote provider: 
+        // Create a stream to a remote provider:
         // const { ethereum } = window;
         // console.log(ethereum)
         // const w = new Wallet(Wallet.createRandom(), rpc);
@@ -68,9 +66,5 @@ describe('Warn', () => {
         // const signer = provider.getSigner();
         // let x = await signer.getAddress();
         // console.log(x);
-
     });
-
-
-
 });

@@ -2,7 +2,7 @@ import { writable } from "svelte/store";
 import { Contract, ethers } from "ethers";
 import { deployments, IERC20Standard } from "renpool-contracts";
 import { DECIMALS } from "./bond";
-import { browser } from '$app/env';
+import { browser } from "$app/env";
 
 const CHAIN_ID = parseInt(import.meta.env.VITE_CHAIN_ID);
 
@@ -11,11 +11,7 @@ async function balanceOf(
     provider: ethers.providers.Web3Provider
 ) {
     const renTokenAddr = deployments.kovan.renTokenAddr;
-    const contract = new Contract(
-        renTokenAddr,
-        IERC20Standard.abi,
-        provider
-    );
+    const contract = new Contract(renTokenAddr, IERC20Standard.abi, provider);
 
     return contract.balanceOf(address);
 }
@@ -56,7 +52,6 @@ class Wallet {
         this.balance = balance;
         return this;
     }
-
 }
 
 export const wallet = writable(new Wallet());
@@ -66,12 +61,16 @@ if (browser) {
 
     const updateBalance = () => {
         if (!ethereum.chainId) {
-            console.debug(`Chain Id should be set, but it is ${ethereum.chainId}`);
+            console.debug(
+                `Chain Id should be set, but it is ${ethereum.chainId}`
+            );
             return;
         }
 
         if (!ethereum.selectedAddress) {
-            console.debug(`Selected Address should be set, but it is ${ethereum.selectedAddress}`);
+            console.debug(
+                `Selected Address should be set, but it is ${ethereum.selectedAddress}`
+            );
             return;
         }
 
@@ -80,18 +79,20 @@ if (browser) {
             balanceOf(ethereum.selectedAddress, provider).then(balance => {
                 balance = ethers.utils.formatUnits(balance, DECIMALS);
                 wallet.update(w => w.setBalance(balance));
-            })
+            });
         } else {
             wallet.update(w => w.setBalance(null));
         }
-    }
+    };
 
     if (ethereum === undefined) {
         wallet.update(w => w.setHasMetaMask(false));
     } else {
         wallet.update(w => w.setHasMetaMask(true));
 
-        console.debug(`MetaMask installed. Current chainId:${ethereum.chainId}`);
+        console.debug(
+            `MetaMask installed. Current chainId:${ethereum.chainId}`
+        );
         wallet.update(w => w.setChainId(ethereum.chainId));
 
         if (ethereum.selectedAddress !== null) {
@@ -110,10 +111,11 @@ if (browser) {
             if ((accounts as any).length === 0) {
                 wallet.update(w => w.setSelectedAddress(null).setBalance(null));
             } else {
-                wallet.update(w => w.setSelectedAddress(ethereum.selectedAddress));
+                wallet.update(w =>
+                    w.setSelectedAddress(ethereum.selectedAddress)
+                );
                 updateBalance();
             }
         });
     }
-
 }
