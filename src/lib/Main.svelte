@@ -1,7 +1,7 @@
 <script lang="ts">
+    import { InlineNotification } from "carbon-components-svelte";
     import Addresses from "./Addresses.svelte";
     import Stats from "./Stats.svelte";
-    import Warn from "./Warn.svelte";
     import Network from "./Network.svelte";
 
     export let chain:
@@ -15,11 +15,12 @@
 
 <main class="container bg-indigo-50 px-8 py-8 mx-auto">
     {#if chain.isWrong}
-        <Warn title="Incorrect network selected">
-            Your MetaMask is connected to network different from the network
-            this site is using. Please change your network to
-            <span class="font-bold">{chain.shouldConnectTo}</span>.
-        </Warn>
+      <InlineNotification
+        title="Incorrect network selected:"
+        subtitle="Your MetaMask is connected to network different from the network
+        this site is using. Please change your network to
+        {chain.shouldConnectTo}."
+      />
     {/if}
 
     <slot />

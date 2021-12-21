@@ -1,6 +1,6 @@
 <script lang="ts">
     import { shortAccount } from "./net/shortAccount";
-    import Chip from "./Chip/Chip.svelte";
+    import Chip from "./Chip.svelte";
 
     /**
      * Indicates whether the MetaMask extension is installed in the browser.
