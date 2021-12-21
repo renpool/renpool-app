@@ -9,20 +9,4 @@
     <Header renPoolAddr="0x1234" {...args} />
 </Template>
 
-<Story
-    name="Unlocked"
-    args="{{
-        totalPooled: '100000',
-        isLocked: false,
-        userBalance: '1000',
-    }}"
-/>
-
-<Story
-    name="Locked"
-    args="{{
-        totalPooled: '100000',
-        isLocked: true,
-        userBalance: '1000',
-    }}"
-/>
+<Story name="Default" />

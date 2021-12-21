@@ -1,34 +1,41 @@
 <script lang="ts">
-    import Logo from "./img/Logo.svelte";
+    import {
+        Header,
+        HeaderNav,
+        HeaderNavItem,
+        SideNav,
+        SideNavItems,
+        SideNavLink,
+        SkipToContent,
+    } from "carbon-components-svelte";
 
     export let renPoolAddr: string;
+
+    let isSideNavOpen = false;
+    let links = [
+        { href: "/", text: "Home" },
+        { href: `/pools/${renPoolAddr}/deposit`, text: "Deposit" },
+        { href: `/pools/${renPoolAddr}/withdraw`, text: "Withdraw" },
+        { href: "/howto", text: "How To" },
+    ]
 </script>
 
-<header class="text-gray-600 bg-purple-100">
-    <div
-        class="container mx-auto flex flex-wrap px-5 py-3 flex-col sm:flex-row items-center"
-    >
-        <a class="flex title-font items-center md:mb-0" href="/">
-            <Logo />
-            <div class="flex flex-wrap flex-col items-start text-left">
-                <div class="ml-3 text-2xl font-bold text-gray-900">RenPool</div>
-                <p class="ml-3 text-sm text-grey-dark">Community RenPools</p>
-            </div>
-        </a>
-        <nav
-            class="md:ml-auto flex flex-wrap items-center text-base justify-center"
-        >
-            <a href="/">Home</a>
-            <a href="/pools/{renPoolAddr}/deposit">Deposit</a>
-            <a href="/pools/{renPoolAddr}/withdraw">Withdraw</a>
-            <a href="/howto">How To</a>
-        </nav>
-        <slot />
+<Header company="RenPool" platformName="Community" bind:isSideNavOpen>
+    <div slot="skip-to-content">
+        <SkipToContent />
     </div>
-</header>
 
-<style lang="postcss">
-    nav a {
-        @apply mr-5 hover:text-gray-900;
-    }
-</style>
+    <HeaderNav>
+        {#each links as link}
+          <HeaderNavItem href="{link.href}" text={link.text} />
+        {/each}
+    </HeaderNav>
+</Header>
+
+<SideNav bind:isOpen="{isSideNavOpen}">
+    <SideNavItems>
+        {#each links as link}
+          <SideNavLink href="{link.href}" text={link.text} />
+        {/each}
+    </SideNavItems>
+</SideNav>
