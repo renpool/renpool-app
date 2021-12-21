@@ -6,10 +6,7 @@ import { optimizeImports } from "carbon-preprocess-svelte";
 export default {
     // Consult https://github.com/sveltejs/svelte-preprocess
     // for more information about preprocessors
-    preprocess: [
-        preprocess({ postcss: true }),
-        optimizeImports(),
-    ],
+    preprocess: [preprocess({ postcss: true }), optimizeImports()],
     kit: {
         adapter: adapter(),
 
