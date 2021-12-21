@@ -1,6 +1,6 @@
 <script lang="ts">
+    import { Tag } from "carbon-components-svelte";
     import { shortAccount } from "./net/shortAccount";
-    import Chip from "./Chip.svelte";
 
     /**
      * Indicates whether the MetaMask extension is installed in the browser.
@@ -34,7 +34,5 @@
         >{balance} REN
     </a>
 
-    <Chip variant="info" class="text-xs">
-        {shortAccount(selectedAddress)}
-    </Chip>
+    <Tag type="blue">{shortAccount(selectedAddress)}</Tag>
 {/if}
