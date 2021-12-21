@@ -15,12 +15,14 @@
 
 <main class="container bg-indigo-50 px-8 py-8 mx-auto">
     {#if chain.isWrong}
-      <InlineNotification
-        title="Incorrect network selected:"
-        subtitle="Your MetaMask is connected to network different from the network
-        this site is using. Please change your network to
-        {chain.shouldConnectTo}."
-      />
+      <InlineNotification>
+          <strong slot="title">Incorrect network selected: </strong>
+          <span slot="subtitle">
+            Your MetaMask is connected to network different from the network
+            this site is using. Please change your network to
+            <strong>{chain.shouldConnectTo}</strong>.
+          </span>
+      </InlineNotification>
     {/if}
 
     <slot />
