@@ -9,11 +9,11 @@
     <Header renPoolAddr="0x1234" {...args} />
 </Template>
 
-<Story name="Wallet not connected" />
+<Story name="Account not connected" />
 
 <Story
-  name="Wallet connected"
+  name="Account connected"
   args={{
-    selectedAddress: "0x123456789",
+    account: "0x123456789",
   }}
 />

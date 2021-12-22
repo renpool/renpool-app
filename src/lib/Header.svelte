@@ -13,7 +13,7 @@
     import { shortAccount } from "./net/shortAccount";
 
     export let renPoolAddr: string;
-    export let selectedAddress: string | null = null;
+    export let account: string | null = null;
 
     let isSideNavOpen = false;
     let links = [
@@ -42,7 +42,7 @@
     <HeaderUtilities>
       <div class="flex items-center px-3">
         <Tag type="cool-gray">
-        {selectedAddress != null ? shortAccount(selectedAddress) : ''}
+        {account != null ? shortAccount(account) : ''}
         </Tag>
       </div>
     </HeaderUtilities>
