@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Tag } from "carbon-components-svelte";
+    import { Link, Tag, InlineLoading } from "carbon-components-svelte";
     import { shortAccount } from "./net/shortAccount";
 
     /**
@@ -8,31 +8,21 @@
      */
     export let hasMetaMask: boolean | null = null;
 
-    export let chainId: number | null = null;
-
-    export let selectedAddress: string | null = null;
-
-    export let balance: string | null = null;
+    export let account: string | null = null;
 
     async function connectToMetaMask() {
         await window.ethereum.enable();
     }
 </script>
 
-{chainId}
-
 {#if hasMetaMask === null}
-    <span>loading...</span>
+    <InlineLoading description="Loading..." />
 {:else if !hasMetaMask}
-    <a target="_blank" href="https://metamask.io/download">Install MetaMask</a>
-{:else if selectedAddress === null}
+    <Link href="https://metamask.io/download" target="_blank">
+        Install MetaMask
+    </Link>
+{:else if account === null}
     <button on:click="{connectToMetaMask}">Connect to MetaMask</button>
 {:else}
-    <a
-        href="/"
-        class="text-xs no-underline text-grey-darker hover:text-blue-dark ml-2 px-1"
-        >{balance} REN
-    </a>
-
-    <Tag type="blue">{shortAccount(selectedAddress)}</Tag>
+    <Tag type="cool-gray">{shortAccount(account)}</Tag>
 {/if}

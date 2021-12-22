@@ -8,12 +8,9 @@
         SideNavItems,
         SideNavLink,
         SkipToContent,
-        Tag,
     } from "carbon-components-svelte";
-    import { shortAccount } from "./net/shortAccount";
 
     export let renPoolAddr: string;
-    export let account: string | null = null;
 
     let isSideNavOpen = false;
     let links = [
@@ -33,21 +30,17 @@
     <div slot="skip-to-content">
         <SkipToContent />
     </div>
-
     <HeaderNav>
         {#each links as link}
             <HeaderNavItem href="{link.href}" text="{link.text}" />
         {/each}
     </HeaderNav>
     <HeaderUtilities>
-      <div class="flex items-center px-3">
-        <Tag type="cool-gray">
-        {account != null ? shortAccount(account) : ''}
-        </Tag>
-      </div>
+        <div class="flex items-center px-3">
+            <slot />
+        </div>
     </HeaderUtilities>
 </Header>
-
 <SideNav bind:isOpen="{isSideNavOpen}">
     <SideNavItems>
         {#each links as link}
