@@ -26,7 +26,7 @@
 
 <script lang="ts">
     import "../app.css";
-    import "carbon-components-svelte/css/g10.css";
+    import "carbon-components-svelte/css/g100.css";
 
     import { wallet } from "$lib/net/wallet";
     import Header from "$lib/Header.svelte";

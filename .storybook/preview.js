@@ -1,5 +1,5 @@
 import "../src/app.css";
-import "carbon-components-svelte/css/g10.css";
+import "carbon-components-svelte/css/g100.css";
 
 export const parameters = {
     actions: { argTypesRegex: "^on[A-Z].*" },

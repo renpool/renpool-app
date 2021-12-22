@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
     import Header from "./Header.svelte";
 </script>
@@ -9,4 +9,11 @@
     <Header renPoolAddr="0x1234" {...args} />
 </Template>
 
-<Story name="Default" />
+<Story name="Wallet not connected" />
+
+<Story
+  name="Wallet connected"
+  args={{
+    selectedAddress: "0x123456789",
+  }}
+/>
