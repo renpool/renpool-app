@@ -13,7 +13,7 @@
     export let renPoolAddr: string;
 
     let isSideNavOpen = false;
-    let links = [
+    const links = [
         { href: "/", text: "Home" },
         { href: `/pools/${renPoolAddr}/deposit`, text: "Deposit" },
         { href: `/pools/${renPoolAddr}/withdraw`, text: "Withdraw" },

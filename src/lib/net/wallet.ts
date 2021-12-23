@@ -19,8 +19,8 @@ async function balanceOf(
 class Wallet {
     hasMetaMask: boolean | null = null;
     chainId: number | null = null;
-    isWrongChain: boolean = false;
-    account: string | null = null;
+    isWrongChain = false;
+    selectedAddress: string | null = null;
     balance: string | null = null;
 
     setHasMetaMask(hasMetaMask: boolean) {
@@ -43,8 +43,8 @@ class Wallet {
         return this;
     }
 
-    setSelectedAddress(account: string | null) {
-        this.account = account;
+    setSelectedAddress(selectedAddress: string | null) {
+        this.selectedAddress = selectedAddress;
         return this;
     }
 
@@ -67,16 +67,16 @@ if (browser) {
             return;
         }
 
-        if (!ethereum.account) {
+        if (!ethereum.selectedAddress) {
             console.debug(
-                `Selected Address should be set, but it is ${ethereum.account}`
+                `Selected Address should be set, but it is ${ethereum.selectedAddress}`
             );
             return;
         }
 
         if (parseInt(ethereum.chainId) === CHAIN_ID) {
             const provider = new ethers.providers.Web3Provider(ethereum as any);
-            balanceOf(ethereum.account, provider).then(balance => {
+            balanceOf(ethereum.selectedAddress, provider).then(balance => {
                 balance = ethers.utils.formatUnits(balance, DECIMALS);
                 wallet.update(w => w.setBalance(balance));
             });
@@ -95,8 +95,8 @@ if (browser) {
         );
         wallet.update(w => w.setChainId(ethereum.chainId));
 
-        if (ethereum.account !== null) {
-            wallet.update(w => w.setSelectedAddress(ethereum.account));
+        if (ethereum.selectedAddress !== null) {
+            wallet.update(w => w.setSelectedAddress(ethereum.selectedAddress));
             updateBalance();
         }
 
@@ -111,7 +111,7 @@ if (browser) {
             if ((accounts as any).length === 0) {
                 wallet.update(w => w.setSelectedAddress(null).setBalance(null));
             } else {
-                wallet.update(w => w.setSelectedAddress(ethereum.account));
+                wallet.update(w => w.setSelectedAddress(ethereum.selectedAddress));
                 updateBalance();
             }
         });
