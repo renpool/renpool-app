@@ -3,7 +3,7 @@ const preprocess = require("svelte-preprocess");
 module.exports = {
     stories: [
         "../src/**/*.stories.mdx",
-        "../src/**/*.stories.@(js|jsx|ts|tsx|svelte)",
+        "../src/**/*.stories.@(svelte)",
     ],
     addons: [
         "@storybook/addon-links",
