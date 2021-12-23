@@ -30,6 +30,6 @@
     name="MetaMask connected"
     args="{{
         hasMetaMask: true,
-        account: '0xasdf',
+        selectedAddress: '0xasdf',
     }}"
 />
