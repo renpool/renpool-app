@@ -8,7 +8,7 @@
      */
     export let hasMetaMask: boolean | null = null;
 
-    export let account: string | null = null;
+    export let selectedAddress: string | null = null;
 
     async function connectToMetaMask() {
         await window.ethereum.enable();
@@ -21,8 +21,8 @@
     <Link href="https://metamask.io/download" target="_blank">
         Install MetaMask
     </Link>
-{:else if account === null}
+{:else if selectedAddress === null}
     <button on:click="{connectToMetaMask}">Connect to MetaMask</button>
 {:else}
-    <Tag type="cool-gray">{shortAccount(account)}</Tag>
+    <Tag type="cool-gray">{shortAccount(selectedAddress)}</Tag>
 {/if}

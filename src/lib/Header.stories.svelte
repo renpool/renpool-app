@@ -32,6 +32,6 @@
 
 <Story name="MetaMask connected" args="{{}}">
     <Header renPoolAddr="0x1234">
-        <Wallet hasMetaMask="{true}" account="0xasdf" />
+        <Wallet hasMetaMask="{true}" selectedAddress="0xasdf" />
     </Header>
 </Story>
