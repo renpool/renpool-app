@@ -111,7 +111,9 @@ if (browser) {
             if ((accounts as any).length === 0) {
                 wallet.update(w => w.setSelectedAddress(null).setBalance(null));
             } else {
-                wallet.update(w => w.setSelectedAddress(ethereum.selectedAddress));
+                wallet.update(w =>
+                    w.setSelectedAddress(ethereum.selectedAddress)
+                );
                 updateBalance();
             }
         });
