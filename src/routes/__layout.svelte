@@ -51,7 +51,7 @@
     setContext("etherscan", NETWORK.etherscan);
 </script>
 
-<Header renPoolAddr="{NETWORK.contracts.REN_POOL}">
+<Header renPoolAddr="{NETWORK.contracts.REN_POOL_FACTORY}">
     <Wallet {...$wallet} />
 </Header>
 <Main

@@ -12,7 +12,7 @@ export const NETWORKS = {
         contracts: {
             REN_TOKEN: deployments.mainnet.renTokenAddr,
             DARKNODE_REGISTRY: deployments.mainnet.darknodeRegistryAddr,
-            REN_POOL: "0x0000000000000000000000000000000000000000",
+            REN_POOL_FACTORY: "0x0000000000000000000000000000000000000000",
         },
     },
     // 3: {
@@ -38,7 +38,7 @@ export const NETWORKS = {
             REN_TOKEN: deployments.kovan.renTokenAddr,
             DARKNODE_REGISTRY: deployments.kovan.darknodeRegistryAddr,
             // REN_POOL: '0xf1e98770ab8ed1364371B8c7DBdA56633F7cB6a9',
-            REN_POOL: import.meta.env.VITE_REN_POOL,
+            REN_POOL_FACTORY: import.meta.env.VITE_REN_POOL_FACTORY,
         },
     },
     1337: {
@@ -48,7 +48,7 @@ export const NETWORKS = {
         contracts: {
             REN_TOKEN: "0x0000000000000000000000000000000000000000",
             DARKNODE_REGISTRY: "0x0000000000000000000000000000000000000000",
-            REN_POOL: "0x0000000000000000000000000000000000000000",
+            REN_POOL_FACTORY: "0x0000000000000000000000000000000000000000",
         },
     },
 };

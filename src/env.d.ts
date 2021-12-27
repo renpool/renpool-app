@@ -54,7 +54,7 @@ interface ImportMetaEnv {
      */
     readonly VITE_CHAIN_ID: `${keyof typeof import("src/routes/_config").NETWORKS}`;
     readonly VITE_JSON_RPC_PROVIDER_URL: string;
-    readonly VITE_REN_POOL: string;
+    readonly VITE_REN_POOL_FACTORY: string;
 }
 
 interface ImportMeta {

@@ -55,7 +55,7 @@ export const RenPoolProvider: FC = ({ children }) => {
     // }
 
     const renPool = useContract(
-        CONTRACT_ADDRESSES[CHAIN_ID].REN_POOL,
+        CONTRACT_ADDRESSES[CHAIN_ID].REN_POOL_FACTORY,
         artifact.abi
     );
 
