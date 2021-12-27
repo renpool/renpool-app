@@ -40,6 +40,8 @@
         "@typescript-eslint/eslint-plugin": "^4.31.1",
         "@typescript-eslint/parser": "^4.31.1",
         "autoprefixer": "^10.4.0",
+        "carbon-components-svelte": "^0.50.2",
+        "carbon-preprocess-svelte": "^0.6.0",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
         "eslint-plugin-svelte3": "^3.2.1",
@@ -61,5 +63,8 @@
     "dependencies": {
         "ethers": "^5.5.1",
         "renpool-contracts": "https://github.com/renpool/renpool-contracts"
+    },
+    "resolutions": {
+        "acorn": "8.0.1"
     }
 }

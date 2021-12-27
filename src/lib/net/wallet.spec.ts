@@ -4,7 +4,6 @@
 
 import "@testing-library/jest-dom";
 // import { render, fireEvent } from '@testing-library/svelte';
-// import Warn from './Warn.svelte';
 
 import { initializeProvider } from "@metamask/providers";
 

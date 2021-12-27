@@ -19,7 +19,7 @@ async function balanceOf(
 class Wallet {
     hasMetaMask: boolean | null = null;
     chainId: number | null = null;
-    isWrongChain: boolean = false;
+    isWrongChain = false;
     selectedAddress: string | null = null;
     balance: string | null = null;
 

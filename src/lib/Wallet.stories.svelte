@@ -30,17 +30,6 @@
     name="MetaMask connected"
     args="{{
         hasMetaMask: true,
-        chainId: 99,
         selectedAddress: '0xasdf',
-    }}"
-/>
-
-<Story
-    name="MetaMask w/balance"
-    args="{{
-        hasMetaMask: true,
-        chainId: 99,
-        selectedAddress: '0xasdf',
-        balance: '10000',
     }}"
 />
