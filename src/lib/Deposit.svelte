@@ -1,15 +1,19 @@
 <script lang="ts">
     import { BigNumber, utils } from "ethers";
-    	import { createEventDispatcher } from 'svelte';
+    import { createEventDispatcher } from "svelte";
     import {
-    Form,
-    FormGroup,
-    NumberInput,
-    Button,
-  } from "carbon-components-svelte";
+        Form,
+        FormGroup,
+        NumberInput,
+        Button,
+    } from "carbon-components-svelte";
 
     import { TENS, DECIMALS } from "./net/bond";
 
+    enum Actions {
+        approve = "approve",
+        deposit = "deposit",
+    }
     /**
      * The address of the specific _RenPool_ to interact with.
      *
@@ -22,45 +26,45 @@
 
     // export let contracts: () => ReturnType<typeof Contracts>;
 
-    	const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 
-      export let approveDisabled = true;
-      export let depositDisabled = true;
-      export let balance: BigNumber;
+    export let approveDisabled = true;
+    export let depositDisabled = true;
+    export let balance: BigNumber;
     /**
      * The amount that the user would want to either approve to
      * the _RenToken_ or deposit into the _RenPool_.
      */
     let amount = 0;
     let _amount = BigNumber.from(0);
-    let invalid = false;
-    let errorMessage = '';
+    let isValid = true;
+    let errorMessage = "";
 
+    // TODO: introduce isFormValid fn
     $: {
-      console.log('amount', amount);
-      _amount = BigNumber.from(utils.parseUnits(amount.toString(), DECIMALS)); // input * 10^18
+        console.log("amount", amount);
+        _amount = BigNumber.from(utils.parseUnits(amount.toString(), DECIMALS)); // input * 10^18
 
-      if (_amount.lt(BigNumber.from(1))) {
-          invalid = true;
-          errorMessage = "Please, enter a valid amount.";
-      } else if (_amount.gt(balance)) {
-          invalid = true;
-          errorMessage = "Insufficient balance.";
-      } else {
-        invalid = false;
-        errorMessage = ""
-      }
+        if (_amount.lt(BigNumber.from(1))) {
+            isValid = false;
+            errorMessage = "Please, enter a valid amount.";
+        } else if (_amount.gt(balance)) {
+            isValid = false;
+            errorMessage = "Insufficient balance.";
+        } else {
+            isValid = true;
+            errorMessage = "";
+        }
     }
 
+    function handleSubmit(action: keyof typeof Actions) {
+        // const _amount = BigNumber.from(utils.parseUnits(amount.toString(), DECIMALS)); // input * 10^18
+        console.log("action", action, _amount.toString());
 
-	function onSubmit(eventType: 'approve' | 'deposit') {
-    // const _amount = BigNumber.from(utils.parseUnits(amount.toString(), DECIMALS)); // input * 10^18
-    console.log('EventType', eventType, _amount.toString())
+        if (!isValid) return;
 
-    if (invalid) return;
-
-		dispatch(eventType, { amount: _amount });
-	}
+        dispatch(action, { amount: _amount });
+    }
     // let allowance: string;
 
     // async function onApproveClick() {
@@ -80,33 +84,34 @@
     // }
 </script>
 
-
 <Form>
     <FormGroup>
-
-    <!-- TODO: make sure amount is positive -->
-  <NumberInput
-    label="Amount of REN to deposit"
-    {invalid}
-    invalidText="{errorMessage}"
-    disabled="{approveDisabled && depositDisabled}"
-    bind:value="{amount}"
-  />
+        <NumberInput
+            label="Amount of REN to deposit"
+            invalid={isValid}
+            invalidText="{errorMessage}"
+            disabled="{approveDisabled && depositDisabled}"
+            bind:value="{amount}"
+        />
     </FormGroup>
-  <Button
-    type="button"
-    disabled="{approveDisabled}"
-    on:click="{() => { onSubmit('approve') }}"
-  >
-    Approve
-  </Button>
-  <Button
-    type="button"
-    disabled="{depositDisabled}"
-    on:click="{() => { onSubmit('deposit') }}"
-  >
-    Deposit
-  </Button>
+    <Button
+        type="button"
+        disabled="{approveDisabled}"
+        on:click="{() => {
+            handleSubmit(Actions.approve);
+        }}"
+    >
+        Approve
+    </Button>
+    <Button
+        type="button"
+        disabled="{depositDisabled}"
+        on:click="{() => {
+            handleSubmit(Actions.deposit);
+        }}"
+    >
+        Deposit
+    </Button>
 </Form>
 
 <!-- <script lang="ts">

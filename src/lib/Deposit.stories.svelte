@@ -1,6 +1,6 @@
 <script>
     import { Meta, Template, Story } from "@storybook/addon-svelte-csf";
-import { BigNumber, utils } from "ethers";
+    import { BigNumber, utils } from "ethers";
     import Deposit from "./Deposit.svelte";
     import { DECIMALS } from "./net/bond";
 </script>
@@ -18,8 +18,8 @@ import { BigNumber, utils } from "ethers";
     }}"
 >
     <Deposit
-        approveDisabled={false}
-        depositDisabled={true}
-      balance={BigNumber.from(utils.parseUnits('1000', DECIMALS))}
+        approveDisabled="{false}"
+        depositDisabled="{true}"
+        balance="{BigNumber.from(utils.parseUnits('1000', DECIMALS))}"
     />
 </Story>

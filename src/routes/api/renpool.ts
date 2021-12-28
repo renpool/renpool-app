@@ -7,11 +7,7 @@ export async function get(renPoolAddr: string) {
         import.meta.env.VITE_JSON_RPC_PROVIDER_URL
     );
 
-    const contract = new Contract(
-        renPoolAddr,
-        RenPool.abi,
-        provider
-    );
+    const contract = new Contract(renPoolAddr, RenPool.abi, provider);
 
     try {
         const owner = await contract.owner();

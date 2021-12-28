@@ -9,7 +9,6 @@
         };
     };
 </script> -->
-
 <script lang="ts">
     import Deposit from "$lib/Deposit.svelte";
     import { getContext } from "svelte";
@@ -26,4 +25,3 @@
 </svelte:head>
 
 <Deposit renPoolAddr="{renPoolAddr}" contracts="{contracts}" />
-
