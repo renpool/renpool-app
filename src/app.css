@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    h1 {
+        @apply sm:text-3xl text-2xl font-medium mb-2 text-gray-900;
+    }
+    h2 {
+        @apply sm:text-2xl text-xl font-medium mb-2 text-gray-900;
+    }
+    .underline-title {
+        @apply h-0.5 w-20 bg-yellow-500 rounded mb-4;
+    }
+}
