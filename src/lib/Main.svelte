@@ -13,7 +13,7 @@
     export let network: PropsOf<typeof Network> | null = null;
 </script>
 
-<main class="container bg-indigo-50 px-8 py-8 mx-auto">
+<main class="container bg-transparent px-8 py-8 mx-auto">
     {#if chain.isWrong}
         <InlineNotification>
             <strong slot="title">Incorrect network selected: </strong>

@@ -1,27 +1,28 @@
-<!-- <script context="module" lang="ts">
-    import type { Load } from "@sveltejs/kit";
-
-    export const load: Load = async ({ page: { params } }) => {
-        return {
-            props: {
-                renPoolAddr: params.address,
-            },
-        };
-    };
-</script> -->
 <script lang="ts">
+    import {
+      Button,
+    } from "carbon-components-svelte";
     import Deposit from "$lib/Deposit.svelte";
     import { getContext } from "svelte";
     import type { Contracts } from "$lib/net/contracts";
 
     export let renPoolAddr: string;
 
-    const contracts: () => ReturnType<typeof Contracts> =
-        getContext("contracts");
+    const contracts: () => ReturnType<typeof Contracts> = getContext("contracts");
+
+    const handleDeploy = async () => {
+        try {
+          await contracts().renPoolFactory().deployNewPool();
+        } catch (e) {
+            alert(`Error during pool deployment, ${JSON.stringify(e, null, 2)}`);
+        }
+    };
 </script>
 
 <svelte:head>
     <title>Home | RenPool</title>
 </svelte:head>
 
-<Deposit renPoolAddr="{renPoolAddr}" contracts="{contracts}" />
+<Button on:click={handleDeploy}>
+  Deploy new pool
+</Button>

@@ -12,6 +12,10 @@ export const NETWORKS = {
         contracts: {
             REN_TOKEN: deployments.mainnet.renTokenAddr,
             DARKNODE_REGISTRY: deployments.mainnet.darknodeRegistryAddr,
+            DARKNODE_REGISTRY_STORE: deployments.mainnet.darknodeRegistryStoreAddr,
+            DARKNODE_PAYMENT: deployments.mainnet.darknodePaymentAddr,
+            CLAIM_REWARDS: deployments.mainnet.claimRewardsAddr,
+            GATEWAY_REGISTRY: deployments.mainnet.gatewayRegistryAddr,
             REN_POOL_FACTORY: "0x0000000000000000000000000000000000000000",
         },
     },
@@ -37,6 +41,10 @@ export const NETWORKS = {
         contracts: {
             REN_TOKEN: deployments.kovan.renTokenAddr,
             DARKNODE_REGISTRY: deployments.kovan.darknodeRegistryAddr,
+            DARKNODE_REGISTRY_STORE: deployments.kovan.darknodeRegistryStoreAddr,
+            DARKNODE_PAYMENT: deployments.kovan.darknodePaymentAddr,
+            CLAIM_REWARDS: deployments.kovan.claimRewardsAddr,
+            GATEWAY_REGISTRY: deployments.kovan.gatewayRegistryAddr,
             // REN_POOL: '0xf1e98770ab8ed1364371B8c7DBdA56633F7cB6a9',
             REN_POOL_FACTORY: import.meta.env.VITE_REN_POOL_FACTORY,
         },
@@ -48,6 +56,10 @@ export const NETWORKS = {
         contracts: {
             REN_TOKEN: "0x0000000000000000000000000000000000000000",
             DARKNODE_REGISTRY: "0x0000000000000000000000000000000000000000",
+            DARKNODE_REGISTRY_STORE: "0x0000000000000000000000000000000000000000",
+            DARKNODE_PAYMENT: "0x0000000000000000000000000000000000000000",
+            CLAIM_REWARDS: "0x0000000000000000000000000000000000000000",
+            GATEWAY_REGISTRY: "0x0000000000000000000000000000000000000000",
             REN_POOL_FACTORY: "0x0000000000000000000000000000000000000000",
         },
     },

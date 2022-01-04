@@ -10734,9 +10734,9 @@ renderkid@^2.0.4:
     lodash "^4.17.21"
     strip-ansi "^3.0.1"
 
-"renpool-contracts@git+https://github.com/renpool/renpool-contracts.git#57b9095037f09c6f4477a8c9907a17dbf806f6a5":
+"renpool-contracts@git+https://github.com/renpool/renpool-contracts.git#c6d2540c17c3bbdd31ac41085421d40d89af1dcb":
   version "0.1.0"
-  resolved "git+https://github.com/renpool/renpool-contracts.git#57b9095037f09c6f4477a8c9907a17dbf806f6a5"
+  resolved "git+https://github.com/renpool/renpool-contracts.git#c6d2540c17c3bbdd31ac41085421d40d89af1dcb"
 
 repeat-element@^1.1.2:
   version "1.1.4"
