@@ -2,7 +2,7 @@
     import Howto from "$lib/Howto.svelte";
     import Step from "$lib/HowtoStep.svelte";
 
-    import { NETWORK } from "src/routes/_config";
+    import { NETWORK } from "./_config";
     import { FAUCET_AMOUNT, BOND, DECIMALS } from "$lib/net/bond";
     import { formatUnits } from "ethers/lib/utils";
 

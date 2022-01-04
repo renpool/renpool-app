@@ -62,7 +62,7 @@
     "type": "module",
     "dependencies": {
         "ethers": "^5.5.1",
-        "renpool-contracts": "https://github.com/renpool/renpool-contracts"
+        "renpool-contracts": "git+https://github.com/renpool/renpool-contracts.git#57b9095037f09c6f4477a8c9907a17dbf806f6a5"
     },
     "resolutions": {
         "acorn": "8.0.1"
